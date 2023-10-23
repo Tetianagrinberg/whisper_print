@@ -261,6 +261,7 @@ class Whisper(nn.Module):
     def forward(
         self, mel: torch.Tensor, tokens: torch.Tensor
     ) -> Dict[str, torch.Tensor]:
+        print("mel shape: ", mel.size(), ", tokens shape: ", tokens.size())
         return self.decoder(tokens, self.encoder(mel))
 
     @property
